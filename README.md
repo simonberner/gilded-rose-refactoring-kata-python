@@ -2,6 +2,10 @@
 - Taken from [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/python)
 - We use [pytest](https://docs.pytest.org)
 
+## What is Code Refactoring?
+Refactoring is a development and testing activity to improve the design (readability, maintainability, reducing complexity) of existing code while preserving its functionality.
+By continuously improving the design of code, we make it easier and easier to work with it.
+
 ## The context: What is the Gilded Rose?
 The [Gilded Rose](https://wowpedia.fandom.com/wiki/Gilded_Rose) is an [Inn](https://wowpedia.fandom.com/wiki/Inn) in the Game [World of Warcraft](https://en.wikipedia.org/wiki/World_of_Warcraft).
 It is basically a shop where one can buy food and drinks.
