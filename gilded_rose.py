@@ -7,10 +7,16 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
-            if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
+
+            # Decrease day
+            if item.name != "Sulfuras, Hand of Ragnaros":
+                item.sell_in = item.sell_in - 1
+
+            # Decrease the quality of normal item
+            if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert" and item.name != "Sulfuras, Hand of Ragnaros":
                 if item.quality > 0:
-                    if item.name != "Sulfuras, Hand of Ragnaros":
-                        item.quality = item.quality - 1
+                    item.quality = item.quality - 1
+            # Increase quality for special items
             else:
                 if item.quality < 50:
                     item.quality = item.quality + 1
@@ -21,18 +27,20 @@ class GildedRose(object):
                         if item.sell_in < 6:
                             if item.quality < 50:
                                 item.quality = item.quality + 1
-            if item.name != "Sulfuras, Hand of Ragnaros":
-                item.sell_in = item.sell_in - 1
+
+            # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if item.sell_in < 0:
                 if item.name != "Aged Brie":
                     if item.name != "Backstage passes to a TAFKAL80ETC concert":
-                        if item.quality > 0:
-                            if item.name != "Sulfuras, Hand of Ragnaros":
-                                item.quality = item.quality - 1
+                        if item.name != "Sulfuras, Hand of Ragnaros" and item.quality > 0:
+                            # Decrease quality
+                            item.quality = item.quality - 1
+                    # Quality drops to 0 after the concert
                     else:
                         item.quality = 0
                 else:
                     if item.quality < 50:
+                        # Increase quality
                         item.quality = item.quality + 1
 
 
