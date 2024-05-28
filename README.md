@@ -30,11 +30,12 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 ## Tasks
 
-- From the start position (main branch), create a new branch
-- Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code
-- Refactor the "production" code (gilded_rose.py) to improve its design (readability, maintainability)
-- Update the "system" with the new feature: "Conjured" items degrade in Quality twice as fast as normal items
-- Reflect/document your learnings in this README
+1. From the start position (main branch), create a new branch
+2. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code 
+3. Tidy the code first in order to make it more readable (to you)
+4. Refactor the "production" code (gilded_rose.py) to improve its design (readability, maintainability)
+5. Update the "system" with the new feature: "Conjured" items degrade in Quality twice as fast as normal items 
+6. Reflect on the exercise and document your learnings in this README
 
 ## Do's and Don'ts
 
