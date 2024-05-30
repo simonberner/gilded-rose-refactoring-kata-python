@@ -9,21 +9,7 @@ class GildedRose(object):
         for item in self.items:
             self.__decrease_day(item)
 
-            # Decrease the quality of normal item
-            if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert" and item.name != "Sulfuras, Hand of Ragnaros":
-                if item.quality > 0:
-                    item.quality = item.quality - 1
-            # Increase quality for special items
-            else:
-                if item.quality < 50:
-                    item.quality = item.quality + 1
-                    if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                        if item.sell_in < 11:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
-                        if item.sell_in < 6:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
+            self.__adjust_quality(item)
 
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if item.sell_in < 0:
@@ -39,6 +25,23 @@ class GildedRose(object):
                     if item.quality < 50:
                         # Increase quality
                         item.quality = item.quality + 1
+
+    def __adjust_quality(self, item):
+        # Decrease the quality of normal item
+        if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert" and item.name != "Sulfuras, Hand of Ragnaros":
+            if item.quality > 0:
+                item.quality = item.quality - 1
+        # Increase quality for special items
+        else:
+            if item.quality < 50:
+                item.quality = item.quality + 1
+                if item.name == "Backstage passes to a TAFKAL80ETC concert":
+                    if item.sell_in < 11:
+                        if item.quality < 50:
+                            item.quality = item.quality + 1
+                    if item.sell_in < 6:
+                        if item.quality < 50:
+                            item.quality = item.quality + 1
 
     def __decrease_day(self, item):
         if item.name != "Sulfuras, Hand of Ragnaros":
