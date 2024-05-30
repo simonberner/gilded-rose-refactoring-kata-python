@@ -11,20 +11,23 @@ class GildedRose(object):
 
             self.__adjust_quality(item)
 
-            # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
-            if item.sell_in < 0:
-                if item.name != "Aged Brie":
-                    if item.name != "Backstage passes to a TAFKAL80ETC concert":
-                        if item.name != "Sulfuras, Hand of Ragnaros" and item.quality > 0:
-                            # Decrease quality
-                            item.quality = item.quality - 1
-                    # Quality drops to 0 after the concert for Backstage passes
-                    else:
-                        item.quality = 0
+            self.__calc_quality_when_selling_date_reached(item)
+
+    def __calc_quality_when_selling_date_reached(self, item):
+        # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
+        if item.sell_in < 0:
+            if item.name != "Aged Brie":
+                if item.name != "Backstage passes to a TAFKAL80ETC concert":
+                    if item.name != "Sulfuras, Hand of Ragnaros" and item.quality > 0:
+                        # Decrease quality
+                        item.quality = item.quality - 1
+                # Quality drops to 0 after the concert for Backstage passes
                 else:
-                    if item.quality < 50:
-                        # Increase quality
-                        item.quality = item.quality + 1
+                    item.quality = 0
+            else:
+                if item.quality < 50:
+                    # Increase quality
+                    item.quality = item.quality + 1
 
     def __adjust_quality(self, item):
         # Decrease the quality of normal item
