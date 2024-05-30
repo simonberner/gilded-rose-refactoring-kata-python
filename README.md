@@ -31,10 +31,10 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 ## Tasks
 
 1. From the start position (main branch), create a new branch
-2. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code 
+2. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code
 3. Tidy the code first in order to make it more readable (to you)
 4. Refactor the "production" code (gilded_rose.py) to improve its design (readability, maintainability)
-5. Update the "system" with the new feature: "Conjured" items degrade in Quality twice as fast as normal items 
+5. Update the "system" with the new feature: "Conjured" items degrade in Quality twice as fast as normal items
 6. Reflect on the exercise and document your learnings in this README
 
 ## Do's and Don'ts
@@ -50,3 +50,9 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 See [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/README.md#history-of-the-exercise) for
 infos about from where this exercise originates.
+
+## Credits and resources
+
+- [Why Developers LOVE The Gilded Rose Kata](https://www.youtube.com/watch?v=Mt4XpGxigT4)
+- [Fun Refactoring! - Gilded Rose Kata, Hands-on with Approval Testing](https://www.youtube.com/watch?v=OdnV8hc9L7I&t)
+- [Best Tests for Gilded Rose Kata | Kent Beck’s Desiderata](https://www.youtube.com/watch?v=vMww6pV6P7s)
