@@ -11,8 +11,6 @@ class GildedRose(object):
 
 
 class Item:
-    BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert"
-    SULFURAS = "Sulfuras, Hand of Ragnaros"
 
     def __init__(self, name, sell_in, quality):
         self.name = name
@@ -21,19 +19,21 @@ class Item:
 
     def update_item(self):
         is_aged_brie = self.name == "Aged Brie"
+        is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
+        is_sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
 
-        self.__decrease_day()
+        self.__decrease_day(is_sulfuras)
 
-        self.__adjust_quality(is_aged_brie)
+        self.__adjust_quality(is_aged_brie, is_backstage_pass, is_sulfuras)
 
-        self.__calc_quality_when_selling_date_reached(is_aged_brie)
+        self.__calc_quality_when_selling_date_reached(is_aged_brie, is_backstage_pass, is_sulfuras)
 
-    def __calc_quality_when_selling_date_reached(self, is_aged_brie):
+    def __calc_quality_when_selling_date_reached(self, is_aged_brie, is_backstage_pass, is_sulfuras):
         # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
         if self.sell_in < 0:
             if not is_aged_brie:
-                if self.name != Item.BACKSTAGE_PASS:
-                    if self.name != Item.SULFURAS and self.quality > 0:
+                if not is_backstage_pass:
+                    if not is_sulfuras and self.quality > 0:
                         # Decrease quality
                         self.quality = self.quality - 1
                 # Quality drops to 0 after the concert for Backstage passes
@@ -44,16 +44,16 @@ class Item:
                     # Increase quality
                     self.quality = self.quality + 1
 
-    def __adjust_quality(self, is_aged_brie):
+    def __adjust_quality(self, is_aged_brie, is_backstage_pass, is_sulfuras):
         # Decrease the quality of normal item
-        if not is_aged_brie and self.name != Item.BACKSTAGE_PASS and self.name != Item.SULFURAS:
+        if not is_aged_brie and not is_backstage_pass and not is_sulfuras:
             if self.quality > 0:
                 self.quality = self.quality - 1
         # Increase quality for special items
         else:
             if self.quality < 50:
                 self.quality = self.quality + 1
-                if self.name == Item.BACKSTAGE_PASS:
+                if is_backstage_pass:
                     if self.sell_in < 11:
                         if self.quality < 50:
                             self.quality = self.quality + 1
@@ -61,8 +61,8 @@ class Item:
                         if self.quality < 50:
                             self.quality = self.quality + 1
 
-    def __decrease_day(self):
-        if self.name != Item.SULFURAS:
+    def __decrease_day(self, is_sulfuras):
+        if not is_sulfuras:
             self.sell_in = self.sell_in - 1
 
     def __repr__(self):
