@@ -11,7 +11,6 @@ class GildedRose(object):
 
 
 class Item:
-    AGED_BRIE = "Aged Brie"
     BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert"
     SULFURAS = "Sulfuras, Hand of Ragnaros"
 
@@ -21,16 +20,18 @@ class Item:
         self.quality = quality
 
     def update_item(self):
+        is_aged_brie = self.name == "Aged Brie"
+
         self.__decrease_day()
 
-        self.__adjust_quality()
+        self.__adjust_quality(is_aged_brie)
 
-        self.__calc_quality_when_selling_date_reached()
+        self.__calc_quality_when_selling_date_reached(is_aged_brie)
 
-    def __calc_quality_when_selling_date_reached(self):
+    def __calc_quality_when_selling_date_reached(self, is_aged_brie):
         # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
         if self.sell_in < 0:
-            if self.name != Item.AGED_BRIE:
+            if not is_aged_brie:
                 if self.name != Item.BACKSTAGE_PASS:
                     if self.name != Item.SULFURAS and self.quality > 0:
                         # Decrease quality
@@ -43,9 +44,9 @@ class Item:
                     # Increase quality
                     self.quality = self.quality + 1
 
-    def __adjust_quality(self):
+    def __adjust_quality(self, is_aged_brie):
         # Decrease the quality of normal item
-        if self.name != Item.AGED_BRIE and self.name != Item.BACKSTAGE_PASS and self.name != Item.SULFURAS:
+        if not is_aged_brie and self.name != Item.BACKSTAGE_PASS and self.name != Item.SULFURAS:
             if self.quality > 0:
                 self.quality = self.quality - 1
         # Increase quality for special items
