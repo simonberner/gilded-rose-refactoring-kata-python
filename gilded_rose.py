@@ -43,18 +43,9 @@ class Item:
                                 self.quality = self.quality + 1
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if self.sell_in < 0:
-                if not True:
-                    if not is_backstage_pass:
-                        if not is_sulfuras and self.quality > 0:
-                            # Decrease quality
-                            self.quality = self.quality - 1
-                        # Quality drops to 0 after the concert for Backstage passes
-                    else:
-                        self.quality = 0
-                else:
-                    if self.quality < 50:
-                        # Increase quality
-                        self.quality = self.quality + 1
+                if self.quality < 50:
+                    # Increase quality
+                    self.quality = self.quality + 1
         else:
             backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
             sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
@@ -85,10 +76,6 @@ class Item:
                         # Quality drops to 0 after the concert for Backstage passes
                     else:
                         self.quality = 0
-                else:
-                    if self.quality < 50:
-                        # Increase quality
-                        self.quality = self.quality + 1
 
 
 def __repr__(self):
