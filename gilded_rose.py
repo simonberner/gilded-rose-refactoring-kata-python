@@ -21,45 +21,74 @@ class Item:
         is_aged_brie = self.name == "Aged Brie"
 
         if is_aged_brie:
-            self.foobar(True)
-        else:
-            self.foobar(False)
+            is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
+            is_sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
 
-    def foobar(self, is_aged_brie):
-        is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
-        is_sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
-
-        if not is_sulfuras:  # SMELL: repeated conditional
-            self.sell_in = self.sell_in - 1
-        # Decrease the quality of normal item
-        if not is_aged_brie and not is_backstage_pass and not is_sulfuras:  # SMELL: repeated conditional
-            if self.quality > 0:
-                self.quality = self.quality - 1
-        # Increase quality for special items
-        else:
-            if self.quality < 50:
-                self.quality = self.quality + 1
-                if is_backstage_pass:
-                    if self.sell_in < 11:
-                        if self.quality < 50:
-                            self.quality = self.quality + 1
-                    if self.sell_in < 6:
-                        if self.quality < 50:
-                            self.quality = self.quality + 1
-        # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
-        if self.sell_in < 0:
-            if not is_aged_brie:
-                if not is_backstage_pass:
-                    if not is_sulfuras and self.quality > 0:
-                        # Decrease quality
-                        self.quality = self.quality - 1
-                    # Quality drops to 0 after the concert for Backstage passes
-                else:
-                    self.quality = 0
+            if not is_sulfuras:  # SMELL: repeated conditional
+                self.sell_in = self.sell_in - 1
+            # Decrease the quality of normal item
+            if not True and not is_backstage_pass and not is_sulfuras:  # SMELL: repeated conditional
+                if self.quality > 0:
+                    self.quality = self.quality - 1
+            # Increase quality for special items
             else:
                 if self.quality < 50:
-                    # Increase quality
                     self.quality = self.quality + 1
+                    if is_backstage_pass:
+                        if self.sell_in < 11:
+                            if self.quality < 50:
+                                self.quality = self.quality + 1
+                        if self.sell_in < 6:
+                            if self.quality < 50:
+                                self.quality = self.quality + 1
+            # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
+            if self.sell_in < 0:
+                if not True:
+                    if not is_backstage_pass:
+                        if not is_sulfuras and self.quality > 0:
+                            # Decrease quality
+                            self.quality = self.quality - 1
+                        # Quality drops to 0 after the concert for Backstage passes
+                    else:
+                        self.quality = 0
+                else:
+                    if self.quality < 50:
+                        # Increase quality
+                        self.quality = self.quality + 1
+        else:
+            backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
+            sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
+            if not sulfuras:  # SMELL: repeated conditional
+                self.sell_in = self.sell_in - 1
+            # Decrease the quality of normal item
+            if not False and not backstage_pass and not sulfuras:  # SMELL: repeated conditional
+                if self.quality > 0:
+                    self.quality = self.quality - 1
+            # Increase quality for special items
+            else:
+                if self.quality < 50:
+                    self.quality = self.quality + 1
+                    if backstage_pass:
+                        if self.sell_in < 11:
+                            if self.quality < 50:
+                                self.quality = self.quality + 1
+                        if self.sell_in < 6:
+                            if self.quality < 50:
+                                self.quality = self.quality + 1
+            # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
+            if self.sell_in < 0:
+                if not False:
+                    if not backstage_pass:
+                        if not sulfuras and self.quality > 0:
+                            # Decrease quality
+                            self.quality = self.quality - 1
+                        # Quality drops to 0 after the concert for Backstage passes
+                    else:
+                        self.quality = 0
+                else:
+                    if self.quality < 50:
+                        # Increase quality
+                        self.quality = self.quality + 1
 
 
 def __repr__(self):
