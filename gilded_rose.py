@@ -52,7 +52,7 @@ class Item:
             if not sulfuras:  # SMELL: repeated conditional
                 self.sell_in = self.sell_in - 1
             # Decrease the quality of normal item
-            if not False and not backstage_pass and not sulfuras:  # SMELL: repeated conditional
+            if not backstage_pass and not sulfuras:  # SMELL: repeated conditional
                 if self.quality > 0:
                     self.quality = self.quality - 1
             # Increase quality for special items
@@ -68,14 +68,13 @@ class Item:
                                 self.quality = self.quality + 1
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if self.sell_in < 0:
-                if not False:
-                    if not backstage_pass:
-                        if not sulfuras and self.quality > 0:
-                            # Decrease quality
-                            self.quality = self.quality - 1
-                        # Quality drops to 0 after the concert for Backstage passes
-                    else:
-                        self.quality = 0
+                if not backstage_pass:
+                    if not sulfuras and self.quality > 0:
+                        # Decrease quality
+                        self.quality = self.quality - 1
+                    # Quality drops to 0 after the concert for Backstage passes
+                else:
+                    self.quality = 0
 
 
 def __repr__(self):
