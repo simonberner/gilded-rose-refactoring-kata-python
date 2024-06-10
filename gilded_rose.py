@@ -25,12 +25,6 @@ class Item:
         if is_aged_brie:
             if not is_sulfuras:  # SMELL: repeated conditional
                 self.sell_in = self.sell_in - 1
-            # Decrease the quality of normal item
-            if not True and not is_backstage_pass and not is_sulfuras:  # SMELL: repeated conditional
-                if self.quality > 0:
-                    self.quality = self.quality - 1
-            # Increase quality for special items
-            else:
                 if self.quality < 50:
                     self.quality = self.quality + 1
                     if is_backstage_pass:
