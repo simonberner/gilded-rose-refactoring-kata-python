@@ -27,13 +27,8 @@ class Item:
                 self.sell_in = self.sell_in - 1
                 if self.quality < 50:
                     self.quality = self.quality + 1
-                    if is_backstage_pass:
-                        if self.sell_in < 11:
-                            if self.quality < 50:
-                                self.quality = self.quality + 1
-                        if self.sell_in < 6:
-                            if self.quality < 50:
-                                self.quality = self.quality + 1
+                    if is_backstage_pass and self.sell_in < 11:
+                        self.quality = self.quality + 1
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if self.sell_in < 0:
                 if self.quality < 50:
@@ -51,12 +46,10 @@ class Item:
                 if self.quality < 50:
                     self.quality = self.quality + 1
                     if is_backstage_pass:
-                        if self.sell_in < 11:
-                            if self.quality < 50:
-                                self.quality = self.quality + 1
+                        if self.quality < 50 and self.sell_in < 11:
+                            self.quality = self.quality + 1
                         if self.sell_in < 6:
-                            if self.quality < 50:
-                                self.quality = self.quality + 1
+                            self.quality = self.quality + 1
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if self.sell_in < 0:
                 if not is_backstage_pass:
