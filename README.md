@@ -76,3 +76,13 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 
 - `pip install -U pytest` (see [here](https://docs.pytest.org/en/8.2.x/getting-started.html#install-pytest))
 - `pip install -U pytest-watch` (see [here](https://pypi.org/project/pytest-watch/))
+
+## Learnings
+
+- When we do structural changes to the code, we call that _tidying_.
+- When we do behavioural changes to the code, we call that _refactoring_.
+- Commits are like checkpoints to come back to in case we mess something up and the tests are failing.
+- Lift up conditional refactoring: extract a method with all the code with the duplicated conditional
+
+### Code Smells
+- Repeated conditional checking `Aged Brie` and `Backstage passes`. So these parts are linked with each other.
