@@ -39,13 +39,15 @@ class Item:
                         self.increase_quality_backstage_pass()
             # Once the sell by date has passed, Quality degrades twice as fast (meaning an additional decrease of -1)
             if self.sell_in < 0:
-                if is_backstage_pass:
-                    # Quality drops to 0 after the concert for Backstage passes
-                    self.quality = 0
-                else:
-                    if not is_sulfuras and self.quality > 0:
-                        # Decrease quality
-                        self.quality = self.quality - 1
+                self.calc_quality_sellin_reached(is_backstage_pass, is_sulfuras)
+
+    def calc_quality_sellin_reached(self, is_backstage_pass, is_sulfuras):
+        if is_backstage_pass:
+            self.quality = 0  # Quality drops to 0 after the concert for Backstage passes
+        else:
+            if not is_sulfuras and self.quality > 0:
+                # Decrease quality
+                self.quality = self.quality - 1
 
     def increase_quality_backstage_pass(self):
         if self.quality < 50 and self.sell_in < 11:
