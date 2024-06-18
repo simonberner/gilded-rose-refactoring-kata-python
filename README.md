@@ -17,10 +17,15 @@ running the tests often, and incrementally improving the design.
 
 You will see that without any Tests in place, you will be lost while refactoring.
 
-## What is Code Refactoring?
+## What is Tidying?
 
-Refactoring is a development and testing activity to improve the design (readability, maintainability, reducing
-complexity) of existing code while preserving its functionality.
+Tidying :broom: is a development activity where we change the structure (not the behaviour!) of existing code to improve
+its readability.
+
+## What is Refactoring?
+
+Refactoring :hammer: is a development and testing activity to improve the design (readability, maintainability, reducing
+complexity) of existing code by **changing its behaviour** while preserving its functionality.
 By continuously improving the design of code, we make it easier and easier to work with it.
 
 ## Gilded Rose Requirements Specification
@@ -31,11 +36,14 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 ## Tasks
 
 1. From the start position (main branch), create a new branch
-2. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code
-3. Tidy the code first in order to make it more readable (to you)
-4. Refactor the "production" code (gilded_rose.py) to improve its design (readability, maintainability)
-5. Update the "system" with the new feature: "Conjured" items degrade in Quality twice as fast as normal items
-6. Reflect on the exercise and document your learnings in this README
+2. Study the (vague) requirements and think about how you could cover them in the current code with tests.
+3. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code
+4. Tidy (structure) the code in order to improve readability
+5. Refactor (change the behaviour) of the production code to improve its design
+6. Tidy (structure) more as needed
+7. Add a test for the new feature "Conjured items"
+8. Implement the new feature "Conjured items" (which degrade in Quality twice as fast as normal items)
+9. Reflect on the exercise and document your learnings
 
 ## Do's and Don'ts
 
