@@ -52,7 +52,9 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 ## Tips
 
-- While refactoring try to take small steps, don't rush ahead and run your Tests after each change
+- As you go on, ask the following: are we tidying (changing the structure of) the code or are we refactoring (
+  changing the behaviour of) the code?
+- While tidying and refactoring try to take small steps, don't rush ahead and run your Tests after each change
 
 ## History of the Kata
 
@@ -64,12 +66,13 @@ infos about from where this exercise originates.
 - [Why Developers LOVE The Gilded Rose Kata](https://www.youtube.com/watch?v=Mt4XpGxigT4)
 - [Fun Refactoring! - Gilded Rose Kata, Hands-on with Approval Testing](https://www.youtube.com/watch?v=OdnV8hc9L7I&t)
 - [Best Tests for Gilded Rose Kata | Kent Beck’s Desiderata](https://www.youtube.com/watch?v=vMww6pV6P7s)
+- [The Test Desiderata Map](https://kentbeck.github.io/TestDesiderata/)
 
 ## Python hints
 
 ### pytest
 
-Install/Upgrade the following things as dependency in the projects .venv (virtual environment):
+Install/Upgrade the following things as dependencies in the projects .venv (virtual environment):
 
 - `pip install -U pytest` (see [here](https://docs.pytest.org/en/8.2.x/getting-started.html#install-pytest))
 - `pip install -U pytest-watch` (see [here](https://pypi.org/project/pytest-watch/))
