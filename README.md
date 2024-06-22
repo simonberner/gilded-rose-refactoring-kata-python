@@ -76,3 +76,75 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 
 - `pip install -U pytest` (see [here](https://docs.pytest.org/en/8.2.x/getting-started.html#install-pytest))
 - `pip install -U pytest-watch` (see [here](https://pypi.org/project/pytest-watch/))
+
+## Learnings
+
+### Code smells
+
+- The current design of the code is not composable at all. The existing code is a tangled mess of business
+  rules.
+- The item has its members accessed all over the place. This means the code actually belongs into the Item class.
+
+### Test coverage
+
+- We would need to write a lot of test combinationsg s
+- to cover all the possible business rules -> Could we cover them
+  by using [ApprovalTest](https://github.com/approvals/ApprovalTests.Python?
+- How about picking out just the most relevant combinations and cover them with UnitTests?
+    - It would take quite some time to figure these out
+- It is very hard to write composable tests if your software design is not composable.
+
+### Code reading techniques
+
+- Slow scroll
+- Code folding
+
+### Writing Tests
+
+- Test Desiderata is a fundamental collection of valuable properties, which
+  help us to optimize the value of automated tests.
+- [Programmer tests are an oracle providing feedback coding-decision-by-coding-decision.](https://medium.com/@kentbeck_7670/programmer-test-principles-d01c064d7934)
+- If the code is not composable, its best to give up on writing normal Unit Tests with the composable Test
+  Desiderata in mind. Instead use Approval Test with combination approval. You will get a lot of coverage with very
+  little Test code.
+- When writing composable Tests, we can test one aspect (of the underlying code) at a time and don't need to write a
+  test for every single combination.
+
+### Nice to know
+
+- [Here](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md) is a very
+  comprehensive possible solution in Java
+
+### Composable code
+
+When we say "code has to be composable," we mean that the code should be designed in a way that allows different parts
+of it to be combined and reused easily in various configurations. Composability is a key principle in software design
+that enables modularity and flexibility. Here are some aspects of composable code:
+
+1. **Modularity**: The code is broken down into small, self-contained modules or components, each responsible for a
+   specific functionality. These modules can be developed, tested, and maintained independently.
+
+2. **Interoperability**: The components can interact with each other through well-defined interfaces or APIs. This
+   ensures that modules can be plugged into different contexts without modification.
+
+3. **Reusability**: Composable code is designed to be reused across different parts of the application or even across
+   different projects. This reduces duplication and enhances consistency.
+
+4. **Separation of Concerns**: Each module focuses on a single aspect of the functionality, adhering to the principle of
+   separation of concerns. This makes the code easier to understand and manage.
+
+5. **Flexibility**: Composable code can be easily adapted and extended. New functionality can be added by creating new
+   modules or by composing existing ones in new ways.
+
+6. **Decoupling**: Components are loosely coupled, meaning changes in one part of the system have minimal impact on
+   others. This improves maintainability and reduces the risk of introducing bugs when making changes.
+
+7. **Ease of Testing**: Each module can be tested in isolation, which simplifies the testing process and enhances test
+   coverage.
+
+8. **Scalability**: Composable code can be scaled more effectively, as components can be distributed across different
+   systems or scaled independently based on demand.
+
+In essence, composable code enhances the overall robustness, maintainability, and scalability of software systems by
+promoting the use of modular, interoperable, and reusable components. This approach is particularly beneficial in modern
+software development practices such as microservices architecture, functional programming, and object-oriented design.
