@@ -77,6 +77,15 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 - `pip install -U pytest` (see [here](https://docs.pytest.org/en/8.2.x/getting-started.html#install-pytest))
 - `pip install -U pytest-watch` (see [here](https://pypi.org/project/pytest-watch/))
 
+### Steps for ApprovalTests
+
+1. `pip install -U approvaltests` (
+   see [here](https://github.com/approvals/ApprovalTests.Python?tab=readme-ov-file#adding-to-existing-projects))
+2. `pip install -U pytest-approvaltests`
+   see [here](https://github.com/approvals/ApprovalTests.Python?tab=readme-ov-file#example-using-pytest)
+3. `pytest --approvaltests-use-reporter='PythonNative'`
+   see [here](https://github.com/approvals/ApprovalTests.Python.PytestPlugin?tab=readme-ov-file#usage) -> (other diff tools: FileMerge, DiffMerge)
+
 ## Learnings
 
 ### Code smells
@@ -87,7 +96,7 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 
 ### Test coverage
 
-- We would need to write a lot of test combinationsg s
+- We would need to write a lot of test combinations
 - to cover all the possible business rules -> Could we cover them
   by using [ApprovalTest](https://github.com/approvals/ApprovalTests.Python?
 - How about picking out just the most relevant combinations and cover them with UnitTests?
