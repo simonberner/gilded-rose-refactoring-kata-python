@@ -4,12 +4,20 @@ from approvaltests import verify
 
 # Check that sellIn and Quality degrades by 1 for a normal item
 def test_update_quality():
-    items = [Item("normal item", 10, 4)]
+    name = "normal item"
+    sellIn = 10
+    quality = 4
+
+    item_as_string = do_update_quality(name, quality, sellIn)
+    verify(item_as_string)
+
+
+def do_update_quality(name, quality, sellIn):
+    items = [Item(name, sellIn, quality)]
     gilded_rose = GildedRose(items)
     gilded_rose.update_quality()
     item = gilded_rose.items[0]
-    item_as_string = __print_item_as_string(item)
-    verify(item_as_string)
+    return __print_item_as_string(item)
 
 
 def __print_item_as_string(item):
