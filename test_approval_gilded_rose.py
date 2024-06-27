@@ -1,19 +1,21 @@
 from gilded_rose import Item, GildedRose
-from approvaltests import verify
+from approvaltests import verify, verify_all_combinations
 
 
 # Check that sellIn and Quality degrades by 1 for a normal item
 def test_update_quality():
     name = "normal item"
-    sellIn = 10
+    sell_in = 10
     quality = 4
 
-    item_as_string = do_update_quality(name, quality, sellIn)
-    verify(item_as_string)
+    verify_all_combinations(
+        do_update_quality,
+        [[str(name)], [int(sell_in)], [int(quality)]]
+    )
 
 
-def do_update_quality(name, quality, sellIn):
-    items = [Item(name, sellIn, quality)]
+def do_update_quality(name, sell_in, quality):
+    items = [Item(name, sell_in, quality)]
     gilded_rose = GildedRose(items)
     gilded_rose.update_quality()
     item = gilded_rose.items[0]
