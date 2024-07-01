@@ -84,7 +84,11 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 2. `pip install -U pytest-approvaltests`
    see [here](https://github.com/approvals/ApprovalTests.Python?tab=readme-ov-file#example-using-pytest)
 3. `pytest --approvaltests-use-reporter='PythonNative'`
-   see [here](https://github.com/approvals/ApprovalTests.Python.PytestPlugin?tab=readme-ov-file#usage) -> (other diff tools: FileMerge, DiffMerge)
+   see [here](https://github.com/approvals/ApprovalTests.Python.PytestPlugin?tab=readme-ov-file#usage) -> (other diff
+   tools: DiffMerge)
+4. We
+   can configure all verify functions
+   with an optional options parameter for [selecting a reporter](https://github.com/approvals/ApprovalTests.Python?tab=readme-ov-file#reporters).
 
 ## Learnings
 
