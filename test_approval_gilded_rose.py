@@ -1,5 +1,6 @@
 from gilded_rose import Item, GildedRose
-from approvaltests import verify, verify_all_combinations
+from approvaltests import verify_all_combinations, Options, DiffReporter
+from approvaltests.reporters import PythonNativeReporter
 
 
 # Check that sellIn and Quality degrades by 1 for a normal item
@@ -10,7 +11,8 @@ def test_update_quality():
 
     verify_all_combinations(
         do_update_quality,
-        [[str(name)], [int(sell_in)], [int(quality)]]
+        [[str(name)], [int(sell_in)], [int(quality)]],
+        options=Options().with_reporter(reporter=PythonNativeReporter())
     )
 
 
