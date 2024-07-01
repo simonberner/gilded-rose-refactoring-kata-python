@@ -11,7 +11,7 @@ def test_update_quality():
 
     verify_all_combinations(
         do_update_quality,
-        [[str(name)], [int(sell_in)], [int(quality)]],
+        [[str(name), "Aged Brie"], [int(sell_in)], [int(quality)]],
         options=Options().with_reporter(reporter=PythonNativeReporter())
     )
 
