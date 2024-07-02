@@ -5,13 +5,11 @@ from approvaltests.reporters import PythonNativeReporter
 
 # Check that sellIn and Quality degrades by 1 for a normal item
 def test_update_quality():
-    name = "normal item"
-    sell_in = 10
-    quality = 4
-
     verify_all_combinations(
         do_update_quality,
-        [[str(name), "Aged Brie"], [int(sell_in)], [int(quality)]],
+        [["normal item", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"],
+         [10],  # sellIn
+         [4]],  # quality
         options=Options().with_reporter(reporter=PythonNativeReporter())
     )
 

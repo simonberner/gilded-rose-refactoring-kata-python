@@ -1,2 +1,4 @@
 args: ('normal item', 10, 4) => 'normal item, sellIn: 9, Quality: 3'
 args: ('Aged Brie', 10, 4) => 'Aged Brie, sellIn: 9, Quality: 5'
+args: ('Backstage passes to a TAFKAL80ETC concert', 10, 4) => 'Backstage passes to a TAFKAL80ETC concert, sellIn: 9, Quality: 6'
+args: ('Sulfuras, Hand of Ragnaros', 10, 4) => 'Sulfuras, Hand of Ragnaros, sellIn: 10, Quality: 4'
