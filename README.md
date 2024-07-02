@@ -25,7 +25,7 @@ its readability.
 ## What is Refactoring?
 
 Refactoring :hammer: is a development and testing activity to improve the design (readability, maintainability, reducing
-complexity) of existing code by **changing its behaviour** while preserving its functionality.
+complexity) of existing code by **changing its internal behaviour** while preserving its functionality.
 By continuously improving the design of code, we make it easier and easier to work with it.
 
 ## Gilded Rose Requirements Specification
@@ -37,7 +37,7 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 1. From the start position (main branch), create a new branch
 2. Study the (vague) requirements and think about how you could cover them in the current code with tests.
-3. Fix the existing Test and add some new ones which reflect the current behavior (spec) of the production code
+3. Fix the existing Test and add some new ones which reflect the current (external) behavior (spec) of the production code
 4. Tidy (structure) the code in order to improve readability
 5. Refactor (change the behaviour) of the production code to improve its design
 6. Tidy (structure) more as needed
