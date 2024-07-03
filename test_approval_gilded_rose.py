@@ -16,9 +16,9 @@ from approvaltests.reporters import PythonNativeReporter
 # - "Backstage passes", like aged brie, increases in Quality by 1 as its SellIn value approaches;
 #   - Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
 #   - Quality drops to 0 after the concert
-def test_update_quality():
+def test_update_sellin_quality():
     verify_all_combinations(
-        do_update_quality,
+        __do_update_quality,
         [["normal item", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"],
          [10, 6, 5, -1],  # sellIn
          [4, 51, -1]],  # quality
@@ -26,7 +26,7 @@ def test_update_quality():
     )
 
 
-def do_update_quality(name, sell_in, quality):
+def __do_update_quality(name, sell_in, quality):
     items = [Item(name, sell_in, quality)]
     gilded_rose = GildedRose(items)
     gilded_rose.update_quality()
