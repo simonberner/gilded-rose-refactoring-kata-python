@@ -106,6 +106,7 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 - How about picking out just the most relevant combinations and cover them with UnitTests?
     - It would take quite some time to figure these out
 - It is very hard to write composable tests if your software design is not composable.
+- The [best way for writing tests for The Gilded Rose Kata is by using Approval Tests](https://www.youtube.com/watch?v=vMww6pV6P7s&t=360s.
 
 ### Code reading techniques
 
@@ -114,12 +115,13 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 
 ### Writing Tests
 
-- Test Desiderata is a fundamental collection of valuable properties, which
+- Test Desiderata is a fundamental collection of properties, which
   help us to optimize the value of automated tests.
 - [Programmer tests are an oracle providing feedback coding-decision-by-coding-decision.](https://medium.com/@kentbeck_7670/programmer-test-principles-d01c064d7934)
 - If the code is not composable, its best to give up on writing normal Unit Tests with the composable Test
   Desiderata in mind. Instead use Approval Test with combination approval. You will get a lot of coverage with very
   little Test code.
+- With large sets of approval tests which have a lot of combination, we might run in to speed problems where a test can have a runtime of several minutes.
 - When writing composable Tests, we can test one aspect (of the underlying code) at a time and don't need to write a
   test for every single combination.
 
