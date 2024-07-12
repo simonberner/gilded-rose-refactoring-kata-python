@@ -22,7 +22,7 @@ class Item:
 
         if is_aged_brie:
             # ifelse
-            if True and self.name != "Backstage passes to a TAFKAL80ETC concert":
+            if self.name != "Backstage passes to a TAFKAL80ETC concert":
                 if self.quality > 0:
                     if self.name != "Sulfuras, Hand of Ragnaros":
                         self.quality = self.quality - 1
@@ -40,14 +40,12 @@ class Item:
             # Code smell: repeated conditional
             if self.sell_in < 0:
                 # ifelse
-                if True:
-                    # ifelse
-                    if self.name != "Backstage passes to a TAFKAL80ETC concert":
-                        if self.quality > 0:
-                            if self.name != "Sulfuras, Hand of Ragnaros":
-                                self.quality = self.quality - 1
-                    else:
-                        self.quality -= self.quality
+                if self.name != "Backstage passes to a TAFKAL80ETC concert":
+                    if self.quality > 0:
+                        if self.name != "Sulfuras, Hand of Ragnaros":
+                            self.quality = self.quality - 1
+                else:
+                    self.quality -= self.quality
         else:
             # ifelse
             if False and self.name != "Backstage passes to a TAFKAL80ETC concert":
