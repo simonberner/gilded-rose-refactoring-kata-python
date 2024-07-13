@@ -19,49 +19,51 @@ class Item:
     def update_item(self):
         # If not Aged Brie and not Backstage passes
         is_aged_brie = self.name != "Aged Brie"
+        is_backstage_pass = self.name != "Backstage passes to a TAFKAL80ETC concert"
+        is_sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
 
         if is_aged_brie:
             # ifelse
-            if self.name != "Backstage passes to a TAFKAL80ETC concert":
+            if is_backstage_pass:
                 if self.quality > 0:
-                    if self.name != "Sulfuras, Hand of Ragnaros":
+                    if is_sulfuras:
                         self.quality = self.quality - 1
             else:
                 if self.quality < 50:
                     self.quality = self.quality + 1
-                    if self.name == "Backstage passes to a TAFKAL80ETC concert":
+                    if not is_backstage_pass:
                         if self.sell_in < 11 and self.quality < 50:
                             self.quality = self.quality + 1
                         if self.sell_in < 6 and self.quality < 50:
                             self.quality = self.quality + 1
             # Updating sellIn when not Sulfuras
-            if self.name != "Sulfuras, Hand of Ragnaros":
+            if is_sulfuras:
                 self.sell_in = self.sell_in - 1
             # Code smell: repeated conditional
             if self.sell_in < 0:
                 # ifelse
-                if self.name != "Backstage passes to a TAFKAL80ETC concert":
+                if is_backstage_pass:
                     if self.quality > 0:
-                        if self.name != "Sulfuras, Hand of Ragnaros":
+                        if is_sulfuras:
                             self.quality = self.quality - 1
                 else:
                     self.quality -= self.quality
         else:
             # ifelse
-            if self.name == "Backstage passes to a TAFKAL80ETC concert":
+            if not is_backstage_pass:
                 if self.quality > 0:
-                    if self.name != "Sulfuras, Hand of Ragnaros":
+                    if is_sulfuras:
                         self.quality = self.quality - 1
             else:
                 if self.quality < 50:
                     self.quality = self.quality + 1
-                    if self.name == "Backstage passes to a TAFKAL80ETC concert":
+                    if not is_backstage_pass:
                         if self.sell_in < 11 and self.quality < 50:
                             self.quality = self.quality + 1
                         if self.sell_in < 6 and self.quality < 50:
                             self.quality = self.quality + 1
             # Updating sellIn when not Sulfuras
-            if self.name != "Sulfuras, Hand of Ragnaros":
+            if is_sulfuras:
                 self.sell_in = self.sell_in - 1
             # Code smell: repeated conditional
             if self.sell_in < 0 and self.quality < 50:
