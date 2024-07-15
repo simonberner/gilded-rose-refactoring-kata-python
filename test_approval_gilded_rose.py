@@ -1,6 +1,7 @@
 from gilded_rose import Item, GildedRose
-from approvaltests import verify_all_combinations, Options, DiffReporter
+from approvaltests import verify_all_combinations, Options
 from approvaltests.reporters import PythonNativeReporter
+from approvaltests.reporters import ReportWithVSCodeMacOS
 
 
 # Checking the following for normal items:
@@ -22,7 +23,7 @@ def test_update_sellin_quality():
         [["normal item", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"],
          [-1, 0, 5, 6, 10, 11],  # sellIn
          [-1, 0, 4, 50, 51]],  # quality
-        options=Options().with_reporter(reporter=PythonNativeReporter())
+        options=Options().with_reporter(reporter=ReportWithVSCodeMacOS())
     )
 
 
