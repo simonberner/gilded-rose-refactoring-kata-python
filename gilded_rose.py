@@ -46,23 +46,13 @@ class Item:
                             self.quality = self.quality - 1
                 else:
                     self.quality -= self.quality
+
+        # it is aged_brie
         else:
-            # ifelse
-            if not is_not_backstage_pass:
-                if self.quality > 0:
-                    if is_not_sulfuras:
-                        self.quality = self.quality - 1
-            else:
-                if self.quality < 50:
-                    self.quality = self.quality + 1
-                    if not is_not_backstage_pass:
-                        if self.sell_in < 11 and self.quality < 50:
-                            self.quality = self.quality + 1
-                        if self.sell_in < 6 and self.quality < 50:
-                            self.quality = self.quality + 1
+            if self.quality < 50:
+                self.quality = self.quality + 1
             # Updating sellIn when not Sulfuras
-            if is_not_sulfuras:
-                self.sell_in = self.sell_in - 1
+            self.sell_in = self.sell_in - 1
             # Code smell: repeated conditional
             if self.sell_in < 0 and self.quality < 50:
                 self.quality = self.quality + 1
