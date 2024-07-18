@@ -17,11 +17,11 @@ class Item:
         self.quality = quality
 
     def update_item(self):
-        is_not_aged_brie = self.name != "Aged Brie"
-        is_not_backstage_pass = self.name != "Backstage passes to a TAFKAL80ETC concert"
+        is_aged_brie = self.name == "Aged Brie"
+        is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
 
-        if is_not_aged_brie:
-            if is_not_backstage_pass:
+        if not is_aged_brie:
+            if not is_backstage_pass:
                 is_not_sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
                 if self.quality > 0 and is_not_sulfuras:
                     self.quality = self.quality - 1
