@@ -19,32 +19,34 @@ class Item:
     def update_item(self):
         is_not_aged_brie = self.name != "Aged Brie"
         is_not_backstage_pass = self.name != "Backstage passes to a TAFKAL80ETC concert"
-        is_not_sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
 
         if is_not_aged_brie:
             if is_not_backstage_pass:
-                if self.quality > 0:
-                    if is_not_sulfuras:
-                        self.quality = self.quality - 1
+                is_not_sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
+                if self.quality > 0 and is_not_sulfuras:
+                    self.quality = self.quality - 1
+                # Updating sellIn when not Sulfuras
+                if is_not_sulfuras:
+                    self.sell_in = self.sell_in - 1
+                # Code smell: repeated conditional
+                if self.sell_in < 0:
+                    if self.quality > 0:
+                        if is_not_sulfuras:
+                            self.quality = self.quality - 1
             else:
+                sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
                 if self.quality < 50:
                     self.quality = self.quality + 1
-                    if not is_not_backstage_pass:
+                    if not False:
                         if self.sell_in < 11 and self.quality < 50:
                             self.quality = self.quality + 1
                         if self.sell_in < 6 and self.quality < 50:
                             self.quality = self.quality + 1
-            # Updating sellIn when not Sulfuras
-            if is_not_sulfuras:
-                self.sell_in = self.sell_in - 1
-            # Code smell: repeated conditional
-            if self.sell_in < 0:
-                # ifelse
-                if is_not_backstage_pass:
-                    if self.quality > 0:
-                        if is_not_sulfuras:
-                            self.quality = self.quality - 1
-                else:
+                # Updating sellIn when not Sulfuras
+                if sulfuras:
+                    self.sell_in = self.sell_in - 1
+                # Code smell: repeated conditional
+                if self.sell_in < 0:
                     self.quality -= self.quality
 
         # it is aged_brie
