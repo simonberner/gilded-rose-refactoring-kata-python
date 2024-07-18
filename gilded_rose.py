@@ -19,22 +19,21 @@ class Item:
     def update_item(self):
         is_aged_brie = self.name == "Aged Brie"
         is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
+        is_sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
 
         if not is_aged_brie:
             if not is_backstage_pass:
-                is_not_sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
-                if self.quality > 0 and is_not_sulfuras:
+                if self.quality > 0 and not is_sulfuras:
                     self.quality = self.quality - 1
                 # Updating sellIn when not Sulfuras
-                if is_not_sulfuras:
+                if not is_sulfuras:
                     self.sell_in = self.sell_in - 1
                 # Code smell: repeated conditional
                 if self.sell_in < 0:
                     if self.quality > 0:
-                        if is_not_sulfuras:
+                        if not is_sulfuras:
                             self.quality = self.quality - 1
             else:
-                sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
                 if self.quality < 50:
                     self.quality = self.quality + 1
                     if self.sell_in < 11 and self.quality < 50:
@@ -42,7 +41,7 @@ class Item:
                     if self.sell_in < 6 and self.quality < 50:
                         self.quality = self.quality + 1
                 # Updating sellIn when not Sulfuras
-                if sulfuras:
+                if not is_sulfuras:
                     self.sell_in = self.sell_in - 1
                 # Code smell: repeated conditional
                 if self.sell_in < 0:
