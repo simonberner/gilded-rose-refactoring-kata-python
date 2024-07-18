@@ -37,11 +37,10 @@ class Item:
                 sulfuras = self.name != "Sulfuras, Hand of Ragnaros"
                 if self.quality < 50:
                     self.quality = self.quality + 1
-                    if not False:
-                        if self.sell_in < 11 and self.quality < 50:
-                            self.quality = self.quality + 1
-                        if self.sell_in < 6 and self.quality < 50:
-                            self.quality = self.quality + 1
+                    if self.sell_in < 11 and self.quality < 50:
+                        self.quality = self.quality + 1
+                    if self.sell_in < 6 and self.quality < 50:
+                        self.quality = self.quality + 1
                 # Updating sellIn when not Sulfuras
                 if sulfuras:
                     self.sell_in = self.sell_in - 1
