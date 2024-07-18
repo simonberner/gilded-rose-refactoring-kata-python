@@ -23,16 +23,10 @@ class Item:
 
         if not is_aged_brie:
             if not is_backstage_pass:
-                if self.quality > 0 and not is_sulfuras:
-                    self.quality = self.quality - 1
-                # Updating sellIn when not Sulfuras
-                if not is_sulfuras:
-                    self.sell_in = self.sell_in - 1
-                # Code smell: repeated conditional
-                if self.sell_in < 0:
-                    if self.quality > 0:
-                        if not is_sulfuras:
-                            self.quality = self.quality - 1
+                if is_sulfuras:
+                    self.foobar(True)
+                else:
+                    self.foobar(False)
             else:
                 if self.quality < 50:
                     self.quality = self.quality + 1
@@ -52,6 +46,18 @@ class Item:
                 self.quality = self.quality + 1
             if self.sell_in < 0 and self.quality < 50:
                 self.quality = self.quality + 1
+
+    def foobar(self, is_sulfuras):
+        if self.quality > 0 and not is_sulfuras:
+            self.quality = self.quality - 1
+        # Updating sellIn when not Sulfuras
+        if not is_sulfuras:
+            self.sell_in = self.sell_in - 1
+        # Code smell: repeated conditional
+        if self.sell_in < 0:
+            if self.quality > 0:
+                if not is_sulfuras:
+                    self.quality = self.quality - 1
 
     def __repr__(self):
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
