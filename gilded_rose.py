@@ -40,9 +40,7 @@ class Item:
                         self.quality = self.quality + 1
                     if self.sell_in < 6 and self.quality < 50:
                         self.quality = self.quality + 1
-                # Updating sellIn when not Sulfuras
-                if not is_sulfuras:
-                    self.sell_in = self.sell_in - 1
+                self.sell_in = self.sell_in - 1
                 # Code smell: repeated conditional
                 if self.sell_in < 0:
                     self.quality -= self.quality
