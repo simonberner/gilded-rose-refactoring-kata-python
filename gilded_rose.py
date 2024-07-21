@@ -33,10 +33,8 @@ class Item:
                         self.quality = self.quality - 1
                     # Updating sellIn when not Sulfuras
                     self.sell_in = self.sell_in - 1
-                    # Code smell: repeated conditional
-                    if self.sell_in < 0:
-                        if self.quality > 0:
-                            self.quality = self.quality - 1
+                    if self.sell_in < 0 < self.quality:
+                        self.quality = self.quality - 1
             else:
                 if self.quality < 50:
                     self.quality = self.quality + 1
@@ -45,7 +43,6 @@ class Item:
                     if self.sell_in < 6 and self.quality < 50:
                         self.quality = self.quality + 1
                 self.sell_in = self.sell_in - 1
-                # Code smell: repeated conditional
                 if self.sell_in < 0:
                     self.quality -= self.quality
 
