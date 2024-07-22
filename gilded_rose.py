@@ -21,14 +21,12 @@ class Item:
         is_backstage_pass = self.name == "Backstage passes to a TAFKAL80ETC concert"
         is_sulfuras = self.name == "Sulfuras, Hand of Ragnaros"
 
-        if not is_aged_brie:
-            if not is_backstage_pass:
-                if not is_sulfuras:
-                    self.calculate_normal_item()
-            else:
-                self.calculate_backstage_pass()
-        else:
+        if is_aged_brie:
             self.calculate_aged_brie()
+        elif is_backstage_pass:
+            self.calculate_backstage_pass()
+        elif not is_sulfuras:
+            self.calculate_normal_item()
 
     def calculate_normal_item(self):
         if self.quality > 0:
