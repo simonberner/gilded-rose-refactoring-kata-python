@@ -20,7 +20,7 @@ from approvaltests.reporters import ReportWithVSCodeMacOS
 def test_update_sellin_quality():
     verify_all_combinations(
         __do_update_quality,
-        [["normal item", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"],
+        [["normal item", "Aged Brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "Unicorn (conjured)"],
          [-1, 0, 5, 6, 10, 11],  # sellIn
          [-1, 0, 4, 50, 51]],  # quality
         options=Options().with_reporter(reporter=ReportWithVSCodeMacOS())
