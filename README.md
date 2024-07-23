@@ -125,6 +125,16 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 - When writing composable Tests, we can test one aspect (of the underlying code) at a time and don't need to write a
   test for every single combination.
 
+### Aha moments!
+- The initial messy code for the special item "Sulfuras, Hand of Ragnaros" does nothing at the end, because there is no actual business logic needed for it
+- After tidying and refactoring the existing code base, it is much easier (and makes way much more fun) to add new features.
+
+### New feature 'conjured' items
+- At the end of each day, the Quality degrades twice as fast as normal items.
+- Once the sell by date has passed, Quality still degrades twice as fast.
+- The Quality is never negative.
+- The Quality is never more than 50.
+
 ### Nice to know
 
 - [Here](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md) is a very
