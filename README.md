@@ -37,7 +37,8 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 1. From the start position (main branch), create a new branch
 2. Study the (vague) requirements and think about how you could cover them in the current code with tests.
-3. Fix the existing Test and add some new ones which reflect the current (external) behavior (spec) of the production code
+3. Fix the existing Test and add some new ones which reflect the current (external) behavior (spec) of the production
+   code
 4. Tidy (structure) the code in order to improve readability
 5. Refactor (change the behaviour) of the production code to improve its design
 6. Tidy (structure) more as needed
@@ -52,9 +53,9 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 ## Tips
 
-- As you go on, ask the following: are we tidying (changing the structure of) the code or are we refactoring (
-  changing the behaviour of) the code?
-- While tidying and refactoring try to take small steps, don't rush ahead and run your Tests after each change
+- As you go on with refactoring, ask yourself the following: am I changing the structure of the code (then this activity
+  is called _tidying_) or changing the behaviour of the code?
+- Take small steps and run your Tests after each change.
 
 ## History of the Kata
 
@@ -79,10 +80,22 @@ Install/Upgrade the following things as dependencies in the projects .venv (virt
 
 ## Learnings
 
-- When we do structural changes to the code, we call that _tidying_.
-- When we do behavioural changes to the code, we call that _refactoring_.
+### Refactoring
+
+- First and foremost: refactoring existing code should not lead to changes and bugs in existing functionalities.
+- When we change the structure of existing code, we call that activity _tidying_.
+- Before we do some behaviour changes to the existing code, we might want to tidy things first to get a
+  clearer overview.
+
+### Other
+
 - Commits are like checkpoints to come back to in case we mess something up and the tests are failing.
 - Lift up conditional refactoring: extract a method with all the code with the duplicated conditional
 
 ### Code Smells
+
 - Repeated conditional checking `Aged Brie` and `Backstage passes`. So these parts are linked with each other.
+
+### Unit Tests
+
+- It would take a lot of time and tests to get a descent business logic coverage.
