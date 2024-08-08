@@ -17,16 +17,19 @@ running the tests often, and incrementally improving the design.
 
 You will see that without any Tests in place, you will be lost while refactoring.
 
-## What is Tidying?
-
-Tidying :broom: is a development activity where we change the structure (not the behaviour!) of existing code to improve
-its readability.
-
 ## What is Refactoring?
 
-Refactoring :hammer: is a development and testing activity to improve the design (readability, maintainability, reducing
-complexity) of existing code by **changing its internal behaviour** while preserving its functionality.
-By continuously improving the design of code, we make it easier and easier to work with it.
+Refactoring :hammer: is the overall development and testing activity to improve the design (readability,
+maintainability, reducing
+complexity) of existing code preserving its functionality/behavior. By continuously improving the design of code, we
+make it easier and easier to work with it.
+complexity) of existing code by preserving its functionality (external behavior). By continuously improving the design
+of code, we make it easier and easier to work with it.
+
+## What is Tidying?
+
+Tidying :broom: is a refactoring technique where we cleanup the structure of existing code. It often a preparation step
+in creating value for future development activities. You can see it like tidying your room at home.
 
 ## Gilded Rose Requirements Specification
 
@@ -37,7 +40,8 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 1. From the start position (main branch), create a new branch
 2. Study the (vague) requirements and think about how you could cover them in the current code with tests.
-3. Fix the existing Test and add some new ones which reflect the current (external) behavior (spec) of the production code
+3. Fix the existing Test and add some new ones which reflect the current (external) behavior (spec) of the production
+   code
 4. Tidy (structure) the code in order to improve readability
 5. Refactor (change the behaviour) of the production code to improve its design
 6. Tidy (structure) more as needed
@@ -49,12 +53,6 @@ is [here](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/Gi
 
 - Do not re-write the production code from scratch
 - Write Unit Tests
-
-## Tips
-
-- As you go on, ask the following: are we tidying (changing the structure of) the code or are we refactoring (
-  changing the behaviour of) the code?
-- While tidying and refactoring try to take small steps, don't rush ahead and run your Tests after each change
 
 ## History of the Kata
 
@@ -72,7 +70,13 @@ infos about from where this exercise originates.
 
 ### pytest
 
-Install/Upgrade the following things as dependencies in the projects .venv (virtual environment):
+Install/Upgrade the following things as dependencies in the projects venv (virtual environment):
 
 - `pip install -U pytest` (see [here](https://docs.pytest.org/en/8.2.x/getting-started.html#install-pytest))
 - `pip install -U pytest-watch` (see [here](https://pypi.org/project/pytest-watch/))
+
+### Update Packages
+
+- `pip list` (List the installed packages)
+- `pip list --outdated` (List all the outdated packages)
+- `pip install --upgrade package_name` (Update a specific outdated package)
